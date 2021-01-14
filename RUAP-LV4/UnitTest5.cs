@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace SeleniumTests
 {
     [TestFixture]
-    public class TestCase13
+    public class TestCase15
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -40,13 +40,14 @@ namespace SeleniumTests
         }
 
         [Test]
-        public void TheCase13Test()
+        public void TheCase15Test()
         {
             driver.Navigate().GoToUrl("https://demo.opencart.com/");
-            driver.FindElement(By.Name("search")).Click();
-            driver.FindElement(By.Name("search")).Clear();
-            driver.FindElement(By.Name("search")).SendKeys("traktor");
-            driver.FindElement(By.XPath("(//button[@type='button'])[4]")).Click();
+            driver.FindElement(By.XPath("//div[@id='content']/div[2]/div/div/div[3]/button[2]/i")).Click();
+            driver.FindElement(By.XPath("//div[@id='content']/div[2]/div[2]/div/div[3]/button[2]/i")).Click();
+            driver.FindElement(By.XPath("//a[@id='wishlist-total']/span")).Click();
+            driver.FindElement(By.XPath("//a[@id='wishlist-total']/span")).Click();
+            driver.FindElement(By.XPath("//input[@value='Login']")).Click();
         }
         private bool IsElementPresent(By by)
         {

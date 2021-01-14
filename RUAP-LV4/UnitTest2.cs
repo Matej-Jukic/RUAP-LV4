@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace SeleniumTests
 {
     [TestFixture]
-    public class TestCase13
+    public class TestCase11
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -40,13 +40,30 @@ namespace SeleniumTests
         }
 
         [Test]
-        public void TheCase13Test()
+        public void TheCase11Test()
         {
             driver.Navigate().GoToUrl("https://demo.opencart.com/");
-            driver.FindElement(By.Name("search")).Click();
-            driver.FindElement(By.Name("search")).Clear();
-            driver.FindElement(By.Name("search")).SendKeys("traktor");
-            driver.FindElement(By.XPath("(//button[@type='button'])[4]")).Click();
+            driver.FindElement(By.XPath("//div[@id='top-links']/ul/li[2]/a/span")).Click();
+            driver.FindElement(By.LinkText("Register")).Click();
+            driver.FindElement(By.Id("input-firstname")).Click();
+            driver.FindElement(By.Id("input-firstname")).Clear();
+            driver.FindElement(By.Id("input-firstname")).SendKeys("matko");
+            driver.FindElement(By.Id("input-lastname")).Clear();
+            driver.FindElement(By.Id("input-lastname")).SendKeys("matko");
+            driver.FindElement(By.Id("input-email")).Clear();
+            driver.FindElement(By.Id("input-email")).SendKeys("matko@matko.com");
+            driver.FindElement(By.Id("input-telephone")).Clear();
+            driver.FindElement(By.Id("input-telephone")).SendKeys("225883");
+            driver.FindElement(By.Id("input-password")).Clear();
+            driver.FindElement(By.Id("input-password")).SendKeys("matko");
+            driver.FindElement(By.Id("input-confirm")).Clear();
+            driver.FindElement(By.Id("input-confirm")).SendKeys("matko");
+            driver.FindElement(By.Name("agree")).Click();
+            driver.FindElement(By.XPath("//input[@value='Continue']")).Click();
+            driver.FindElement(By.LinkText("Continue")).Click();
+            driver.FindElement(By.LinkText("My Account")).Click();
+            driver.FindElement(By.LinkText("Logout")).Click();
+            driver.FindElement(By.LinkText("Continue")).Click();
         }
         private bool IsElementPresent(By by)
         {
